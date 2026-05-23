@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,5 +43,194 @@
 
     <script src="script.js"></script>
 
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Technical Skills Login</title>
+
+    <link rel="stylesheet" href="style.css">
+
+<style>
+
+    /* FOOTER NOTE CONTAINER */
+
+/* FOOTER NOTE CONTAINER */
+
+.note-container{
+
+    width:88%;
+
+    max-width:1100px;
+
+    margin-top:0px;
+
+    margin-bottom:20px;
+
+    padding:22px 40px;
+
+    border-radius:28px;
+
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0.95),
+        rgba(255,225,225,0.92)
+    );
+
+    border:1px solid rgba(255,255,255,0.7);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 8px 24px rgba(255,0,0,0.04);
+
+    text-align:center;
+
+    z-index:2;
+}
+
+/* MAIN NOTE TEXT */
+
+.note-text{
+
+    color:#6d0000;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    line-height:1.9;
+}
+
+/* LAST RED LINE */
+
+.highlight-note{
+
+    margin-top:14px;
+
+    color:#d90429;
+
+    font-size:17px;
+
+    font-weight:700;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .note-container{
+
+        width:94%;
+
+        padding:18px 20px;
+    }
+
+    .note-text{
+
+        font-size:14px;
+    }
+
+    .highlight-note{
+
+        font-size:15px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+    <!-- Background Blur Circles -->
+    <div class="bg-circle one"></div>
+    <div class="bg-circle two"></div>
+
+    <!-- Top Header -->
+    <div class="top-header">
+
+        <!-- College Logo -->
+        <img src="clg-logo.png" alt="College Logo" class="college-logo">
+
+        <!-- Department Info -->
+        <div class="dept-section">
+
+            <img src="audi logo.png" alt="Department Logo" class="dept-logo">
+
+            <h2>Department of Data Science</h2>
+
+        </div>
+
+    </div>
+
+    <!-- Login Container -->
+    <div class="container">
+
+        <h1>Technical Skills Selection</h1>
+
+        <input
+            type="text"
+            id="regNo"
+            placeholder="Enter Register Number"
+        >
+
+        <select id="section">
+
+            <option value="">Select Section</option>
+
+            <option>DS-AA</option>
+            <option>DS-AB</option>
+            <option>DS-BA</option>
+            <option>DS-BB</option>
+
+            <option>DS(AI)-AA</option>
+            <option>DS(AI)-AB</option>
+            <option>DS(AI)-BA</option>
+            <option>DS(AI)-BB</option>
+
+        </select>
+
+        <button onclick="login()">
+            Login
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+    <!-- NOTE CONTAINER -->
+
+</div> <!-- Main Container Ends -->
+
+<!-- FOOTER NOTE -->
+
+<div class="note-container">
+
+    <p class="note-text">
+
+        ⚠️ Submission is permitted only once.
+        No modifications will be allowed after submission.
+        Please select two different subjects as your preferences.
+        The same subject should not be chosen more than once.
+
+    </p>
+
+    <p class="highlight-note">
+
+        Kindly verify your selections carefully before submitting the form.
+
+    </p>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

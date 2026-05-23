@@ -1,7 +1,11 @@
+// ======================
+// LOGIN PAGE
+// ======================
+
 async function login() {
 
     const regNo =
-        document.getElementById("regNo").value;
+        document.getElementById("regNo").value.trim();
 
     const section =
         document.getElementById("section").value;
@@ -11,116 +15,290 @@ async function login() {
 
     if (!regNo || !section) {
 
+        message.style.color = "red";
+
         message.innerText =
-            "Fill all fields";
+            "Please fill all fields";
 
         return;
     }
 
-    const response = await fetch("/login", {
+    try {
 
-        method: "POST",
+        const response = await fetch("/login", {
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+            method: "POST",
 
-        body: JSON.stringify({
-            regNo,
-            section
-        })
-    });
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-    const data = await response.json();
+            body: JSON.stringify({
+                regNo,
+                section
+            })
+        });
 
-    if (data.success) {
+        const data =
+            await response.json();
 
-        localStorage.setItem(
-            "student",
-            JSON.stringify(data.student)
-        );
+        if (data.success) {
 
-        window.location.href =
-            "selection.html";
+            localStorage.setItem(
+                "student",
+                JSON.stringify(data.student)
+            );
 
-    } else {
+            window.location.href =
+                "selection.html";
+
+        } else {
+
+            message.style.color = "red";
+
+            message.innerText =
+                data.message;
+        }
+
+    } catch(error) {
+
+        console.log(error);
+
+        message.style.color = "red";
 
         message.innerText =
-            data.message;
+            "Server Error";
     }
 }
 
 
 
+// ======================
+// SELECTION PAGE
+// ======================
+
 const student =
-    JSON.parse(localStorage.getItem("student"));
+    JSON.parse(
+        localStorage.getItem("student")
+    );
+
+
+// Prevent direct access
+if (
+    window.location.pathname.includes(
+        "selection.html"
+    ) &&
+    !student
+) {
+
+    window.location.href = "/";
+}
+
+
+
+// ======================
+// SHOW STUDENT DETAILS
+// ======================
 
 if (
     student &&
-    document.getElementById("studentDetails")
+    document.getElementById(
+        "studentDetails"
+    )
 ) {
 
     document.getElementById(
         "studentDetails"
     ).innerHTML = `
 
-        <p><b>Name:</b> ${student.name}</p>
+        <p><b>Name :</b>
+        ${student.name}</p>
 
-        <p><b>Register Number:</b>
+        <p><b>Register Number :</b>
         ${student.regNo}</p>
 
-        <p><b>Section:</b>
+        <p><b>Section :</b>
         ${student.section}</p>
     `;
-
-    // Already Submitted Check
-    if (student.submitted === 1) {
-
-        document.getElementById(
-            "priority1"
-        ).disabled = true;
-
-        document.getElementById(
-            "priority2"
-        ).disabled = true;
-
-        document.querySelector(
-            "button"
-        ).disabled = true;
-
-        document.getElementById(
-            "message"
-        ).innerText =
-            "You have already submitted";
-    }
 }
 
+
+
+// ======================
+// PRIORITY SELECTION
+// ======================
+
+let priority1 = "";
+let priority2 = "";
+
+
+// PRIORITY 1
+
+document
+    .querySelectorAll(".priority1")
+    .forEach(box => {
+
+        box.addEventListener("click", () => {
+
+            // stop clicking after submit
+            if (
+                document.getElementById(
+                    "submitBtn"
+                ).disabled
+            ) return;
+
+            document
+                .querySelectorAll(".priority1")
+                .forEach(b => {
+
+                    b.classList.remove(
+                        "selected"
+                    );
+                });
+
+            box.classList.add(
+                "selected"
+            );
+
+            priority1 =
+                box.dataset.value;
+        });
+
+    });
+
+
+// PRIORITY 2
+
+document
+    .querySelectorAll(".priority2")
+    .forEach(box => {
+
+        box.addEventListener("click", () => {
+
+            // stop clicking after submit
+            if (
+                document.getElementById(
+                    "submitBtn"
+                ).disabled
+            ) return;
+
+            document
+                .querySelectorAll(".priority2")
+                .forEach(b => {
+
+                    b.classList.remove(
+                        "selected"
+                    );
+                });
+
+            box.classList.add(
+                "selected"
+            );
+
+            priority2 =
+                box.dataset.value;
+        });
+
+    });
+
+
+
+// ======================
+// ALREADY SUBMITTED CHECK
+// ======================
+
+if (
+    student &&
+    student.submitted === 1
+) {
+
+    // SHOW SELECTED PRIORITIES
+
+    priority1 =
+        student.priority1;
+
+    priority2 =
+        student.priority2;
+
+
+    // HIGHLIGHT PRIORITY 1
+
+    document
+        .querySelectorAll(".priority1")
+        .forEach(box => {
+
+            if (
+                box.dataset.value ===
+                student.priority1
+            ) {
+
+                box.classList.add(
+                    "selected"
+                );
+            }
+        });
+
+
+    // HIGHLIGHT PRIORITY 2
+
+    document
+        .querySelectorAll(".priority2")
+        .forEach(box => {
+
+            if (
+                box.dataset.value ===
+                student.priority2
+            ) {
+
+                box.classList.add(
+                    "selected"
+                );
+            }
+        });
+
+    disableForm();
+
+    document.getElementById(
+        "message"
+    ).style.color = "red";
+
+    document.getElementById(
+        "message"
+    ).innerText =
+        "You have already submitted";
+}
+
+
+
+// ======================
+// SUBMIT FUNCTION
+// ======================
+
 async function submitSelection() {
-
-    const priority1 =
-        document.getElementById(
-            "priority1"
-        ).value;
-
-    const priority2 =
-        document.getElementById(
-            "priority2"
-        ).value;
 
     const message =
         document.getElementById(
             "message"
         );
 
+    const submitBtn =
+        document.getElementById(
+            "submitBtn"
+        );
+
     if (!priority1 || !priority2) {
 
+        message.style.color = "red";
+
         message.innerText =
-            "Select both priorities";
+            "Please select both priorities";
 
         return;
     }
 
     if (priority1 === priority2) {
+
+        message.style.color = "red";
 
         message.innerText =
             "Priorities cannot be same";
@@ -128,52 +306,120 @@ async function submitSelection() {
         return;
     }
 
-    const response =
-        await fetch("/submit", {
+    try {
 
-        method: "POST",
+        // DISABLE BUTTON
+        submitBtn.disabled = true;
 
-        headers: {
-            "Content-Type":
-                "application/json"
-        },
+        submitBtn.innerText =
+            "Submitting...";
 
-        body: JSON.stringify({
+        const response =
+            await fetch("/submit", {
 
-            regNo: student.regNo,
+            method: "POST",
 
-            priority1,
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
 
-            priority2
-        })
-    });
+            body: JSON.stringify({
 
-    const data =
-        await response.json();
+                regNo: student.regNo,
 
-    if (data.success) {
+                priority1,
 
-        message.style.color =
-            "green";
+                priority2
+            })
+        });
+
+        const data =
+            await response.json();
+
+            if (data.success) {
+
+message.style.color =
+    "green";
+
+message.innerText =
+    "Submitted Successfully";
+
+submitBtn.innerText =
+    "Submitted";
+
+submitBtn.style.background =
+    "linear-gradient(135deg, #34c759, #7dff9b)";
+
+disableForm();
+
+            // UPDATE LOCAL STORAGE
+            student.submitted = 1;
+
+            student.priority1 =
+                priority1;
+
+            student.priority2 =
+                priority2;
+
+            localStorage.setItem(
+                "student",
+                JSON.stringify(student)
+            );
+
+        } else {
+
+            submitBtn.disabled = false;
+
+            submitBtn.innerText =
+                "Submit";
+
+            message.style.color = "red";
+
+            message.innerText =
+                data.message;
+        }
+
+    } catch(error) {
+
+        console.log(error);
+
+        submitBtn.disabled = false;
+
+        submitBtn.innerText =
+            "Submit";
+
+        message.style.color = "red";
 
         message.innerText =
-            "Submitted Successfully";
-
-        document.getElementById(
-            "priority1"
-        ).disabled = true;
-
-        document.getElementById(
-            "priority2"
-        ).disabled = true;
-
-        document.querySelector(
-            "button"
-        ).disabled = true;
-
-    } else {
-
-        message.innerText =
-            data.message;
+            "Server Error";
     }
+}
+
+
+
+// ======================
+// DISABLE FORM
+// ======================
+
+function disableForm() {
+
+    // DISABLE BUTTON
+
+    document.getElementById(
+        "submitBtn"
+    ).disabled = true;
+
+
+    // DISABLE CLICKING
+
+    document
+        .querySelectorAll(".course-box")
+        .forEach(box => {
+
+            box.style.pointerEvents =
+                "none";
+
+            box.style.opacity = "0.85";
+        });
 }
