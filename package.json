@@ -17,6 +17,7 @@
     "csv-parser": "^3.2.1",
     "express": "^5.2.1",
     "googleapis": "^172.0.0",
-    "sqlite3": "^6.0.1"
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   }
 }
