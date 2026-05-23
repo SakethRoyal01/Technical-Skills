@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Skills Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Technical Skills Selection</h1>
+
+        <input
+            type="text"
+            id="regNo"
+            placeholder="Enter Register Number"
+        >
+
+        <select id="section">
+            <option value="">Select Section</option>
+
+            <option>DS-AA</option>
+            <option>DS-AB</option>
+            <option>DS-BA</option>
+            <option>DS-BB</option>
+
+            <option>DS(AI)-AA</option>
+            <option>DS(AI)-AB</option>
+            <option>DS(AI)-BA</option>
+            <option>DS(AI)-BB</option>
+        </select>
+
+        <button onclick="login()">
+            Login
+        </button>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
