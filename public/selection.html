@@ -386,6 +386,95 @@ body{
             }
         }
 
+        /* NOTE HEADING */
+
+.note-heading{
+
+    margin-bottom:18px;
+
+    color:#d90429;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-shadow:
+        0 0 8px rgba(217,4,41,0.35),
+        0 0 18px rgba(217,4,41,0.18);
+
+    animation:glow 2s infinite alternate;
+}
+
+/* GLOW EFFECT */
+
+@keyframes glow{
+
+    from{
+
+        text-shadow:
+            0 0 6px rgba(217,4,41,0.25),
+            0 0 14px rgba(217,4,41,0.12);
+    }
+
+    to{
+
+        text-shadow:
+            0 0 12px rgba(217,4,41,0.45),
+            0 0 24px rgba(217,4,41,0.25);
+    }
+}
+
+/* NOTE LIST */
+
+.note-list{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+}
+
+.note-list li{
+
+    position:relative;
+
+    padding-left:28px;
+
+    margin-bottom:16px;
+
+    color:#6d0000;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    line-height:1.9;
+
+    text-align:left;
+}
+
+/* BULLET SYMBOL */
+
+.note-list li::before{
+
+    content:"•";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    color:#d90429;
+
+    font-size:24px;
+
+    font-weight:bold;
+}
+
     </style>
 
 </head>
@@ -509,6 +598,35 @@ body{
         <p id="message"></p>
 
     </div>
+<!-- FOOTER NOTE -->
+
+<div class="note-container">
+
+    <h2 class="note-heading">
+        ⚠️ IMPORTANT NOTE
+    </h2>
+
+    <ul class="note-list">
+
+        <li>
+            Submission is permitted only once.
+            No modifications will be allowed after submission.
+        </li>
+
+        <li>
+            Please select two different subjects as your preferences.
+            The same subject should not be chosen more than once.
+        </li>
+
+    </ul>
+
+    <p class="highlight-note">
+
+        Kindly verify your selections carefully before submitting the form.
+
+    </p>
+
+</div>
 
     <!-- YOUR ORIGINAL SCRIPT -->
     <script src="script.js"></script>
