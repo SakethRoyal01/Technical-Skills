@@ -637,12 +637,42 @@ line-height:1.2;
         </div>
 
         <!-- SUBMIT BUTTON -->
-        <button
+        <!-- <button
             id="submitBtn"
             onclick="submitSelection()"
         >
             Submit
-        </button>
+        </button> -->
+
+        <button
+    id="submitBtn"
+    disabled
+
+    style="
+    background:red;
+    cursor:not-allowed;
+    opacity:0.9;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    line-height:1.2;
+    "
+>
+
+    <span style="font-size:18px; font-weight:600;">
+        Submission Closed
+    </span>
+
+    <span style="font-size:11px; font-weight:bold;">
+        Submission time completed
+    </span>
+
+</button>
+
+
 
         <!-- MESSAGE -->
         <p id="message"></p>
