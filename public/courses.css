@@ -466,6 +466,11 @@ tbody td{
     animation:goldGlow 1.5s infinite alternate;
 }
 
+.scroll-note{
+
+    display:none;
+}
+
 @keyframes goldGlow{
 
     from{
@@ -487,11 +492,13 @@ tbody td{
 
 @media(max-width:768px){
 
+    /* HEADER */
+
     .top-header{
 
         flex-direction:column;
 
-        gap:20px;
+        gap:18px;
 
         text-align:center;
     }
@@ -499,16 +506,30 @@ tbody td{
     .dept-section{
 
         flex-direction:column;
+
+        gap:10px;
+    }
+
+    .college-logo{
+
+        width:85px;
+    }
+
+    .dept-logo{
+
+        width:60px;
     }
 
     .dept-section h2{
 
-        font-size:20px;
+        font-size:18px;
     }
+
+    /* TITLE */
 
     .title-section h1{
 
-        font-size:36px;
+        font-size:32px;
     }
 
     .title-section p{
@@ -516,14 +537,20 @@ tbody td{
         font-size:14px;
     }
 
+    /* SEARCH */
+
     .search-section{
 
         flex-direction:column;
+
+        gap:12px;
     }
 
     .search-section input{
 
         width:100%;
+
+        font-size:14px;
     }
 
     .search-section button{
@@ -531,23 +558,150 @@ tbody td{
         width:100%;
     }
 
-    .course-btn{
+.scroll-note{
 
-        width:100%;
+    display:block;
+
+    text-align:center;
+
+    margin-bottom:12px;
+
+    color:#d90429;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+
+
+/* COURSE BUTTONS */
+
+.course-buttons{
+
+    gap:10px;
+}
+
+.course-btn{
+
+    flex:1 1 45%;
+
+    font-size:13px;
+
+    padding:12px 10px;
+}
+
+/* BATCH BUTTONS */
+
+.batch-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+}
+
+/* ALL BUTTON */
+
+.batch-btn:first-child{
+
+    width:100%;
+}
+
+/* BATCH 1 & 2 */
+
+.batch-btn{
+
+    flex:1 1 45%;
+
+    font-size:13px;
+
+    padding:12px 10px;
+}
+
+.batch-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+}
+
+/* ALL BUTTON */
+
+.batch-btn[data-batch="All"]{
+
+    width:100%;
+
+    flex:none;
+}
+
+/* BATCH 1 & 2 */
+
+.batch-btn{
+
+    flex:1 1 45%;
+
+    font-size:13px;
+
+    padding:12px 10px;
+}
+
+
+
+
+    /* TABLE */
+
+    .table-container{
+
+        overflow-x:auto;
+
+        -webkit-overflow-scrolling:touch;
+
+        border-radius:18px;
     }
-
-    .batch-btn{
-
-        width:100%;
-    }
-
-    .college-logo{ width:200px; }
 
     table{
 
-        min-width:700px;
+        min-width:500px;
+    }
+
+    thead th{
+
+        font-size:12px;
+
+        padding:12px 10px;
+
+        white-space:nowrap;
+    }
+
+    tbody td{
+
+        font-size:12px;
+
+        padding:12px 10px;
+
+        white-space:nowrap;
+    }
+
+    /* SCROLLBAR */
+
+    .table-container::-webkit-scrollbar{
+
+        height:6px;
+    }
+
+    .table-container::-webkit-scrollbar-thumb{
+
+        background:#d90429;
+
+        border-radius:20px;
     }
 }
+
+
 
 
 
@@ -563,4 +717,8 @@ tbody td{
 
     color:#d90429;
 }
+
+
+
+
 
