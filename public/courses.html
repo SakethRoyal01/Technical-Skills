@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Selected Courses</title>
+
+<link rel="stylesheet" href="courses.css">
+
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="bg-circle one"></div>
+<div class="bg-circle two"></div>
+
+<!-- TOP HEADER -->
+
+<div class="top-header">
+
+    <img src="../clg-logo.png"
+         alt="College Logo"
+         class="college-logo">
+
+    <div class="dept-section">
+
+        <img src="../audi logo.png"
+             alt="Department Logo"
+             class="dept-logo">
+
+        <h2>Department of Data Science</h2>
+
+    </div>
+
+</div>
+
+
+<!-- MAIN CONTAINER -->
+
+<div class="main-container">
+
+    <!-- PAGE TITLE -->
+
+    <div class="title-section">
+
+        <h1>
+            Course Allotments
+        </h1>
+
+        <p>
+            View allotted courses and batches
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH SECTION -->
+
+    <div class="search-section">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Enter Register Number"
+        >
+
+        <button id="searchBtn">
+            Search
+        </button>
+
+    </div>
+
+
+    <!-- COURSE BUTTONS -->
+
+    <div class="course-buttons">
+
+        <button class="course-btn active"
+                data-course="AWS">
+            AWS
+        </button>
+
+        <button class="course-btn"
+                data-course="Cyber Security">
+            Cyber Security
+        </button>
+
+        <button class="course-btn"
+                data-course="SQL for data analysis">
+            SQL for data analysis
+        </button>
+
+        <button class="course-btn"
+                data-course="Power Bi">
+            Power Bi
+        </button>
+
+    </div>
+
+
+    <!-- BATCH BUTTONS -->
+
+    <div class="batch-buttons">
+
+        <button class="batch-btn active"
+                data-batch="All">
+            All
+        </button>
+
+        <button class="batch-btn"
+                data-batch="Batch 1">
+            Batch 1
+        </button>
+
+        <button class="batch-btn"
+                data-batch="Batch 2">
+            Batch 2
+        </button>
+
+    </div>
+
+
+
+    <!-- TABLE -->
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>S.No</th>
+
+                    <th>Register No</th>
+
+                    <th>Name</th>
+
+                    <th>Section</th>
+
+                    <th>Batch</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="tableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div id="loading">
+
+    Loading Course Data...
+
+</div>
+
+</div>
+
+
+<script src="courses.js"></script>
+
+</body>
+</html>

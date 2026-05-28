@@ -1,52 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Skills Login</title>
-
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <div class="container">
-
-        <h1>Technical Skills Selection</h1>
-
-        <input
-            type="text"
-            id="regNo"
-            placeholder="Enter Register Number"
-        >
-
-        <select id="section">
-            <option value="">Select Section</option>
-
-            <option>DS-AA</option>
-            <option>DS-AB</option>
-            <option>DS-BA</option>
-            <option>DS-BB</option>
-
-            <option>DS(AI)-AA</option>
-            <option>DS(AI)-AB</option>
-            <option>DS(AI)-BA</option>
-            <option>DS(AI)-BB</option>
-        </select>
-
-        <button onclick="login()">
-            Login
-        </button>
-
-        <p id="message"></p>
-
-    </div>
-
-    <script src="script.js"></script>
-
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -235,25 +186,304 @@
     font-weight:bold;
 }
 
+/* =========================================
+   CHECK COURSE SECTION
+========================================= */
+
+.check-section{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-top:30px;
+
+    margin-bottom:25px;
+
+    z-index:2;
+
+    position:relative;
+}
+
+/* BUTTON */
+
+.check-course-btn{
+
+    text-decoration:none;
+
+    background:linear-gradient(
+        135deg,
+        #0f9d58,
+        #34c759
+    );
+
+    color:white;
+
+    padding:16px 38px;
+
+    border-radius:18px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    letter-spacing:0.5px;
+
+    transition:0.35s ease;
+
+    box-shadow:
+        0 10px 28px rgba(15,157,88,0.28);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* SHINE EFFECT */
+
+.check-course-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(255,255,255,0.25);
+
+    transform:skewX(-25deg);
+
+    transition:0.7s;
+}
+
+.check-course-btn:hover::before{
+
+    left:120%;
+}
+
+.check-course-btn:hover{
+
+    transform:translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 14px 35px rgba(15,157,88,0.38);
+}
+
+
+/* SUBTITLE */
+
+.check-subtitle{
+
+    margin-top:14px;
+
+    color:#6d0000;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    text-align:center;
+}
+
+/* =========================================
+   MAIN ENDED CONTAINER
+========================================= */
+
+.ended-main-container{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:10px 20px 40px;
+}
+
+/* MAIN BOX */
+
+.ended-box{
+
+    width:90%;
+
+    max-width:900px;
+
+    padding:70px 40px;
+
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.95),
+            rgba(255,240,240,0.92)
+        );
+
+    border:1px solid rgba(255,255,255,0.7);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 15px 40px rgba(217,4,41,0.08);
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* TOP LIGHT EFFECT */
+
+.ended-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120px;
+
+    left:-120px;
+
+    width:260px;
+
+    height:260px;
+
+    background:rgba(217,4,41,0.08);
+
+    border-radius:50%;
+
+    filter:blur(40px);
+}
+
+/* MAIN TITLE */
+
+
+.ended-title{
+
+    font-size:48px;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+    letter-spacing:1px;
+
+    color:#d90429;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        0 0 10px rgba(217,4,41,0.18);
+
+    animation:glowTitle 2s infinite alternate;
+}
+
+
+
+/* LINE */
+
+.ended-line{
+
+    width:140px;
+
+    height:5px;
+
+    margin:28px auto 0;
+
+    border-radius:20px;
+
+    background:#d90429;
+}
+
+/* GLOW */
+
+@keyframes glowTitle{
+
+    from{
+
+        text-shadow:
+            0 0 8px rgba(217,4,41,0.2);
+    }
+
+    to{
+
+        text-shadow:
+            0 0 22px rgba(217,4,41,0.45);
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media(max-width:768px){
+
+    .check-course-btn{
+
+        width:88%;
+
+        text-align:center;
+
+        font-size:15px;
+
+        padding:14px 20px;
+    }
+
+    .check-subtitle{
+
+        font-size:14px;
+
+        width:90%;
+    }
+
+    .ended-box{
+
+        padding:50px 20px;
+    }
+
+    .ended-title{
+
+        font-size:30px;
+
+        line-height:1.25;
+    }
+
+    .ended-line{
+
+        width:90px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-    <!-- Background Blur Circles -->
     <div class="bg-circle one"></div>
     <div class="bg-circle two"></div>
 
-    <!-- Top Header -->
     <div class="top-header">
 
-        <!-- College Logo -->
-        <img src="clg-logo.png" alt="College Logo" class="college-logo">
+        <img src="../clg-logo.png" alt="College Logo" class="college-logo">
 
-        <!-- Department Info -->
         <div class="dept-section">
 
-            <img src="audi logo.png" alt="Department Logo" class="dept-logo">
+            <img src="../audi logo.png" alt="Department Logo" class="dept-logo">
 
             <h2>Department of Data Science</h2>
 
@@ -261,77 +491,48 @@
 
     </div>
 
-    <!-- Login Container -->
-    <div class="container">
 
-        <h1>Technical Skills Selection</h1>
 
-        <input
-            type="text"
-            id="regNo"
-            placeholder="Enter Register Number"
-        >
 
-        <select id="section">
+<!-- =========================
+     CHECK COURSE SECTION
+========================= -->
 
-            <option value="">Select Section</option>
+<div class="check-section">
 
-            <option>DS-AA</option>
-            <option>DS-AB</option>
-            <option>DS-BA</option>
-            <option>DS-BB</option>
+    <a href="courses.html" class="check-course-btn">
+        Check Your Course Selected
+    </a>
 
-<option>DSAI-AA</option>
-<option>DSAI-AB</option>
-<option>DSAI-BA</option>
-<option>DSAI-BB</option>
-
-        </select>
-
-        <button onclick="login()">
-            Login
-        </button>
-
-        <p id="message"></p>
-
-    </div>
-
-    <!-- NOTE CONTAINER -->
-
-</div> <!-- Main Container Ends -->
-
-<!-- FOOTER NOTE -->
-
-<!-- FOOTER NOTE -->
-
-<div class="note-container">
-
-    <h2 class="note-heading">
-        ⚠️ IMPORTANT NOTE
-    </h2>
-
-    <ul class="note-list">
-
-        <li>
-            Submission is permitted only once.
-            No modifications will be allowed after submission.
-        </li>
-
-        <li>
-            Please select two different subjects as your preferences.
-            The same subject should not be chosen more than once.
-        </li>
-
-    </ul>
-
-    <p class="highlight-note">
-
-        Kindly verify your selections carefully before submitting the form.
-
+    <p class="check-subtitle">
+        Course allotments and batch details can now be viewed.
     </p>
 
 </div>
 
+
+<!-- =========================
+     MAIN ENDED CONTAINER
+========================= -->
+
+<div class="ended-main-container">
+
+    <div class="ended-box">
+
+        <h1 class="ended-title">
+            Course Selection<br>Time Ended
+        </h1>
+
+        <div class="ended-line"></div>
+
+    </div>
+
+</div>
+
+
+
 <script src="script.js"></script>
 </body>
 </html>
+
+

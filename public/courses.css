@@ -1,0 +1,566 @@
+
+/* =========================================
+   GOOGLE FONTS
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff5f5,
+            #ffecec
+        );
+
+    overflow-x:hidden;
+
+    position:relative;
+
+    padding-bottom:40px;
+}
+
+/* =========================================
+   BACKGROUND CIRCLES
+========================================= */
+
+.bg-circle{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    z-index:0;
+}
+
+.bg-circle.one{
+
+    width:260px;
+
+    height:260px;
+
+    background:rgba(217,4,41,0.12);
+
+    top:-80px;
+
+    left:-80px;
+}
+
+.bg-circle.two{
+
+    width:320px;
+
+    height:320px;
+
+    background:rgba(15,157,88,0.10);
+
+    bottom:-100px;
+
+    right:-100px;
+}
+
+/* =========================================
+   TOP HEADER
+========================================= */
+
+.top-header{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:22px 5%;
+
+    position:relative;
+
+    z-index:2;
+}
+
+/* COLLEGE LOGO */
+
+.college-logo{
+
+    width:230px;
+
+    height:auto;
+
+    object-fit:contain;
+}
+
+
+
+/* DEPARTMENT SECTION */
+
+.dept-section{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+}
+
+.dept-logo{
+
+    width:70px;
+
+    height:auto;
+}
+
+.dept-section h2{
+
+    color:#6d0000;
+
+    font-size:24px;
+
+    font-weight:700;
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.main-container{
+
+    width:92%;
+
+    max-width:1400px;
+
+    margin:auto;
+
+    position:relative;
+
+    z-index:2;
+}
+
+/* =========================================
+   TITLE SECTION
+========================================= */
+
+.title-section{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    margin-bottom:35px;
+}
+
+.title-section h1{
+
+    font-size:52px;
+
+    color:#d90429;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    text-shadow:
+        0 0 10px rgba(217,4,41,0.20);
+}
+
+.title-section p{
+
+    margin-top:10px;
+
+    font-size:17px;
+
+    color:#6d0000;
+
+    font-weight:500;
+}
+
+/* =========================================
+   SEARCH SECTION
+========================================= */
+
+.search-section{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:14px;
+
+    margin-bottom:35px;
+
+    flex-wrap:wrap;
+}
+
+.search-section input{
+
+    width:420px;
+
+    max-width:90%;
+
+    padding:15px 18px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:16px;
+
+    font-size:16px;
+
+    background:white;
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,0.06);
+}
+
+.search-section button{
+
+    padding:15px 30px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f9d58,
+            #34c759
+        );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    box-shadow:
+        0 8px 20px rgba(15,157,88,0.25);
+}
+
+.search-section button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 26px rgba(15,157,88,0.35);
+}
+
+/* =========================================
+   COURSE BUTTONS
+========================================= */
+
+.course-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:22px;
+}
+
+.course-btn{
+
+    padding:14px 22px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:white;
+
+    color:#6d0000;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.06);
+}
+
+.course-btn:hover{
+
+    transform:translateY(-2px);
+}
+
+.course-btn.active{
+
+    background:#d90429;
+
+    color:white;
+
+    box-shadow:
+        0 10px 24px rgba(217,4,41,0.25);
+}
+
+/* =========================================
+   BATCH BUTTONS
+========================================= */
+
+.batch-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:35px;
+}
+
+.batch-btn{
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:white;
+
+    color:#6d0000;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.06);
+}
+
+.batch-btn.active{
+
+    background:#0f9d58;
+
+    color:white;
+
+    box-shadow:
+        0 10px 22px rgba(15,157,88,0.22);
+}
+
+/* =========================================
+   TABLE
+========================================= */
+
+.table-container{
+
+    width:100%;
+
+    overflow-x:auto;
+
+    border-radius:26px;
+
+    background:white;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.08);
+
+    padding:12px;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:850px;
+}
+
+/* TABLE HEADER */
+
+thead{
+
+    background:#d90429;
+
+    color:white;
+}
+
+thead th{
+
+    padding:18px;
+
+    font-size:15px;
+
+    text-align:left;
+}
+
+/* TABLE BODY */
+
+tbody tr{
+
+    border-bottom:1px solid #f0f0f0;
+
+    transition:0.25s;
+}
+
+tbody tr:hover{
+
+    background:#fff5f5;
+}
+
+tbody td{
+
+    padding:16px 18px;
+
+    font-size:14px;
+
+    color:#333;
+}
+
+/* HIGHLIGHTED SEARCH ROW */
+
+.highlight-row{
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff4c2,
+            #ffe58a
+        ) !important;
+
+    animation:goldGlow 1.5s infinite alternate;
+}
+
+@keyframes goldGlow{
+
+    from{
+
+        box-shadow:
+            inset 0 0 0 rgba(255,215,0,0.2);
+    }
+
+    to{
+
+        box-shadow:
+            inset 0 0 25px rgba(255,215,0,0.5);
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media(max-width:768px){
+
+    .top-header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        text-align:center;
+    }
+
+    .dept-section{
+
+        flex-direction:column;
+    }
+
+    .dept-section h2{
+
+        font-size:20px;
+    }
+
+    .title-section h1{
+
+        font-size:36px;
+    }
+
+    .title-section p{
+
+        font-size:14px;
+    }
+
+    .search-section{
+
+        flex-direction:column;
+    }
+
+    .search-section input{
+
+        width:100%;
+    }
+
+    .search-section button{
+
+        width:100%;
+    }
+
+    .course-btn{
+
+        width:100%;
+    }
+
+    .batch-btn{
+
+        width:100%;
+    }
+
+    .college-logo{ width:200px; }
+
+    table{
+
+        min-width:700px;
+    }
+}
+
+
+
+#loading{
+
+    text-align:center;
+
+    padding:25px;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#d90429;
+}
+
