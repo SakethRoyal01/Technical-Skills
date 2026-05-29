@@ -108,6 +108,51 @@ async function fetchCourseData(course){
 }
 
 
+const batchDetails = {
+
+    "AWS-Batch 1": {
+        date: "18th to 20th June 2026",
+        venue: "Lan Room"
+    },
+
+    "AWS-Batch 2": {
+        date: "22nd to 24th June 2026",
+        venue: "Lan Room"
+    },
+
+    "Cyber Security-Batch 1": {
+        date: "8th to 10th June 2026",
+        venue: "Auditorium"
+    },
+
+    "Cyber Security-Batch 2": {
+        date: "11th to 13th June 2026",
+        venue: "Auditorium"
+    },
+
+    "SQL for data analysis-Batch 1": {
+        date: "15th to 17th June 2026",
+        venue: "Lan Room"
+    },
+
+    "SQL for data analysis-Batch 2": {
+        date: "22nd to 24th June 2026",
+        venue: "Auditorium"
+    },
+
+    "Power Bi-Batch 1": {
+        date: "8th to 10th June 2026",
+        venue: "Lan Room"
+    },
+
+    "Power Bi-Batch 2": {
+        date: "11th to 13th June 2026",
+        venue: "Lan Room"
+    }
+
+};
+
+
 /* =========================================
    LOAD ALL COURSES
 ========================================= */
@@ -138,6 +183,7 @@ async function loadAllCourses(){
 
 function renderTable(){
 
+
     const tableBody =
     document.getElementById("tableBody");
 
@@ -155,6 +201,51 @@ function renderTable(){
             student.batch === currentBatch
         );
     }
+
+    const infoDiv =
+document.getElementById("batchInfo");
+
+if(currentBatch !== "All"){
+
+    const key =
+    `${currentCourse}-${currentBatch}`;
+
+
+
+
+    const details =
+    batchDetails[key];
+
+    if(details){
+
+
+infoDiv.innerHTML = `
+
+    <div class="info-item">
+        📚 <strong>Course:</strong> ${currentCourse}
+    </div>
+
+    <div class="info-item">
+        👥 <strong>Batch:</strong> ${currentBatch}
+    </div>
+
+    <div class="info-item">
+        📅 <strong>Date:</strong> ${details.date}
+    </div>
+
+    <div class="info-item">
+        📍 <strong>Venue:</strong> ${details.venue}
+    </div>
+
+`;
+
+
+    }
+
+}else{
+
+    infoDiv.innerHTML = "";
+}
 
     if(filteredStudents.length === 0){
 
@@ -200,7 +291,14 @@ function renderTable(){
 
         tableBody.appendChild(row);
     });
+
+
+
+
+
 }
+
+
 
 /* =========================================
    COURSE BUTTONS
