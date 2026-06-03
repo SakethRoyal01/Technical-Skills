@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Payment Portal
+</title>
+
+<link
+rel="stylesheet"
+href="payment.css">
+
+</head>
+
+<body>
+
+<div class="page-title">
+
+    <h1>
+        Technical Skill-I Payment Portal
+    </h1>
+
+</div>
+
+<div id="studentCard"
+class="card">
+
+    Loading Student Details...
+
+</div>
+
+
+<div class="card payment-card">
+
+    <h2>
+        Payment Details
+    </h2>
+
+    <div class="amount">
+        ₹ 2,000
+    </div>
+
+    <p>
+        Complete the payment using the link below.
+    </p>
+
+    <a
+    href="#"
+    id="paymentLink"
+    class="pay-btn"
+    target="_blank">
+
+        Pay Now
+
+    </a>
+
+</div>
+
+
+<div class="card upload-card">
+
+    <h2>
+        Upload Payment Screenshot
+    </h2>
+
+    <p>
+
+        Accepted Formats:
+        JPG, PNG
+
+        <br>
+
+        Maximum Size:
+        2 MB
+
+    </p>
+
+    <div class="confirm-box">
+
+        <input
+        type="checkbox"
+        id="confirmPayment">
+
+        <label
+        for="confirmPayment">
+
+            I confirm that I have completed
+            the payment of ₹2000 and uploaded
+            the correct screenshot.
+
+        </label>
+
+    </div>
+
+    <input
+    type="file"
+    id="paymentFile"
+    accept=".jpg,.jpeg,.png">
+
+    <button
+    id="submitBtn">
+
+        Submit Screenshot
+
+    </button>
+
+</div>
+
+<script src="payment.js"></script>
+
+</body>
+</html>

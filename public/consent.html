@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Technical Skill Consent Form
+</title>
+
+<link
+rel="stylesheet"
+href="consent.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="consentForm">
+
+
+Loading...
+
+
+</div>
+
+<div class="action-section">
+
+
+<button
+id="downloadBtn"
+class="download-btn">
+
+    Download Consent Form
+
+</button>
+
+
+</div>
+
+<div class="upload-card">
+
+
+<h2>
+    Upload Signed Consent Form
+</h2>
+
+<p>
+    Download the consent form,
+    get parent signature,
+    then upload it here.
+</p>
+
+<input
+type="file"
+id="signedFile"
+accept=".pdf,.jpg,.jpeg,.png">
+
+<button
+id="uploadBtn"
+class="upload-btn">
+
+    Upload Document
+
+</button>
+
+
+</div>
+
+<script src="consent.js"></script>
+
+<script>
+
+document
+.getElementById("downloadBtn")
+.addEventListener("click",()=>{
+
+    const element =
+    document.querySelector(".letter");
+
+    const buttons =
+    document.querySelector(".action-section");
+
+    const upload =
+    document.querySelector(".upload-card");
+
+    buttons.style.display = "none";
+    upload.style.display = "none";
+
+    html2pdf()
+    .set({
+
+        margin:0,
+
+        filename:
+        `${loggedStudent.regNo}.pdf`,
+
+        image:{
+            type:"jpeg",
+            quality:1
+        },
+
+        html2canvas:{
+            scale:3,
+            useCORS:true
+        },
+
+        jsPDF:{
+            unit:"mm",
+            format:"a4",
+            orientation:"portrait"
+        }
+
+    })
+    .from(element)
+    .save()
+    .then(()=>{
+
+        buttons.style.display = "block";
+        upload.style.display = "block";
+
+    });
+
+});
+
+</script>
+
+</body>
+
+</html>

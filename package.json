@@ -16,8 +16,11 @@
     "cors": "^2.8.6",
     "csv-parser": "^3.2.1",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
     "googleapis": "^172.0.0",
+    "multer": "^2.1.1",
+    "open": "^11.0.0",
     "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^6.0.1"
   }
 }

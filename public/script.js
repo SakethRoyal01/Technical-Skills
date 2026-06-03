@@ -48,9 +48,8 @@ async function login() {
                 "student",
                 JSON.stringify(data.student)
             );
-
-            window.location.href =
-                "selection.html";
+window.location.href =
+"consent.html";
 
         } else {
 
@@ -422,4 +421,84 @@ function disableForm() {
 
             box.style.opacity = "0.85";
         });
+}
+
+
+async function paymentLogin() {
+
+    const regNo =
+        document.getElementById(
+            "paymentRegNo"
+        ).value.trim();
+
+    const section =
+        document.getElementById(
+            "paymentSection"
+        ).value;
+
+    const message =
+        document.getElementById(
+            "paymentMessage"
+        );
+
+    if (!regNo || !section) {
+
+        message.style.color = "red";
+
+        message.innerText =
+            "Please fill all fields";
+
+        return;
+    }
+
+    try {
+
+        const response =
+        await fetch("/login", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type":
+                "application/json"
+            },
+
+            body: JSON.stringify({
+                regNo,
+                section
+            })
+        });
+
+        const data =
+        await response.json();
+
+        if (data.success) {
+
+            localStorage.setItem(
+                "student",
+                JSON.stringify(
+                    data.student
+                )
+            );
+
+            window.location.href =
+                "payment.html";
+
+        } else {
+
+            message.style.color =
+                "red";
+
+            message.innerText =
+                data.message;
+        }
+
+    } catch(error) {
+
+        message.style.color =
+            "red";
+
+        message.innerText =
+            "Server Error";
+    }
 }
