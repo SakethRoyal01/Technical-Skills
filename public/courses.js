@@ -22,7 +22,7 @@ const courses = [
     },
 
     {
-        name:"SQL for data analysis",
+        name:"SQL for data analytics",
         gid:"1330432124"
     },
 
@@ -130,12 +130,12 @@ const batchDetails = {
         venue: "Auditorium"
     },
 
-    "SQL for data analysis-Batch 1": {
+    "SQL for data analytics-Batch 1": {
         date: "15th to 17th June 2026",
         venue: "Lan Room"
     },
 
-    "SQL for data analysis-Batch 2": {
+    "SQL for data analytics-Batch 2": {
         date: "22nd to 24th June 2026",
         venue: "Auditorium"
     },

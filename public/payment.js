@@ -22,7 +22,7 @@ const courses = [
     },
 
     {
-        name:"SQL for data analysis",
+        name:"SQL for data analytics",
         gid:"1330432124"
     },
 
