@@ -1,8 +1,18 @@
 const fs = require("fs");
 const { google } = require("googleapis");
 
-const config =
-require("./driveConfig");
+const config = {
+
+    client_id:
+    process.env.CLIENT_ID,
+
+    client_secret:
+    process.env.CLIENT_SECRET,
+
+    refresh_token:
+    process.env.REFRESH_TOKEN
+
+};
 
 const oAuth2Client =
 new google.auth.OAuth2(
