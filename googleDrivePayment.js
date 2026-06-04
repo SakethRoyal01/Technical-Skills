@@ -127,8 +127,18 @@ if(alreadyExists){
     );
 }
 
-    const response =
-    await drive.files.create({
+    console.log(
+    "FILE PATH:",
+    filePath
+);
+
+console.log(
+    "FILE EXISTS:",
+    fs.existsSync(filePath)
+);
+
+const response =
+await drive.files.create({
 
         requestBody:{
 
@@ -158,3 +168,5 @@ if(alreadyExists){
 
 module.exports =
 uploadPayment;
+
+
