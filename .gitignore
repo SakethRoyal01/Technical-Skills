@@ -1,4 +1,8 @@
+
 node_modules
 OAuth.json
 credentials.json
-uploads
+driveConfig.js
+
+uploads/*
+!uploads/.gitkeep

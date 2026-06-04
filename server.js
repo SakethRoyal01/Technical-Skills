@@ -335,6 +335,13 @@ const cors = require("cors");
 const multer = require("multer");
 const fs = require("fs");
 
+
+if (!fs.existsSync("uploads")) {
+
+    fs.mkdirSync("uploads");
+
+}
+
 const uploadPayment =
 require("./googleDrivePayment");
 
