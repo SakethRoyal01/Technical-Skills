@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 const { google } = require("googleapis");
 
 const config = {
@@ -70,14 +71,14 @@ async function fileExists(
         "files(id,name)"
     });
 
-    return result.data.files.some(
+return result.data.files.some(
 
-        file =>
+    file =>
 
-        file.name === regNo + ".jpg" ||
-
-        file.name === regNo + ".png"
-    );
+    file.name.startsWith(
+        regNo + "."
+    )
+);
 }
 
 async function uploadPayment(
@@ -103,13 +104,8 @@ async function uploadPayment(
         );
     }
 
-    const extension =
-
-    mimeType === "image/png"
-
-    ? ".png"
-
-    : ".jpg";
+const extension =
+path.extname(filePath);
 
     const alreadyExists =
 await fileExists(
@@ -127,15 +123,7 @@ if(alreadyExists){
     );
 }
 
-    console.log(
-    "FILE PATH:",
-    filePath
-);
 
-console.log(
-    "FILE EXISTS:",
-    fs.existsSync(filePath)
-);
 
 const response =
 await drive.files.create({

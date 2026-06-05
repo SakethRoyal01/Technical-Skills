@@ -1,4 +1,8 @@
 const fs = require("fs");
+
+const path =
+require("path");
+
 const { google } = require("googleapis");
 
 const config = {
@@ -74,13 +78,11 @@ async function uploadConsent(
         );
     }
 
-    const extension =
+const path =
+require("path");
 
-    mimeType === "image/png"
-
-    ? ".png"
-
-    : ".jpg";
+const extension =
+path.extname(filePath);
 
     const response =
     await drive.files.create({
