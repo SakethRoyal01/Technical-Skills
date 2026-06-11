@@ -734,3 +734,26 @@ catch(error){
     });
 }
 });
+
+app.get("/drive-test", async (req, res) => {
+
+    try {
+
+        const uploadPayment =
+        require("./googleDrivePayment");
+
+        res.json({
+            success: true,
+            message: "Google Drive auth loaded"
+        });
+
+    } catch (err) {
+
+        console.log(err);
+
+        res.json({
+            success: false,
+            error: err.message
+        });
+    }
+});
