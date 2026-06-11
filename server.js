@@ -533,7 +533,7 @@ async (req,res)=>{
             });
         }
 
-        if(req.file.size > 2 * 1024 * 1024){
+        if(req.file.size > 5 * 1024 * 1024){
 
     fs.unlinkSync(
         req.file.path
@@ -544,35 +544,11 @@ async (req,res)=>{
         success:false,
 
         message:
-        "Image size must be less than 2 MB"
+        "Image size must be less than 5 MB"
 
     });
 }
 
-        const allowed = [
-
-            "image/jpeg",
-            "image/png"
-        ];
-
-        if(
-            !allowed.includes(
-                req.file.mimetype
-            )
-        ){
-
-            fs.unlinkSync(
-                req.file.path
-            );
-
-            return res.json({
-
-                success:false,
-
-                message:
-                "Only JPG and PNG allowed"
-            });
-        }
 
         const fileId =
         await uploadConsent(
@@ -694,7 +670,7 @@ async (req,res)=>{
             });
         }
 
-        if(req.file.size > 2 * 1024 * 1024){
+        if(req.file.size > 5 * 1024 * 1024){
 
             fs.unlinkSync(
                 req.file.path
@@ -705,34 +681,11 @@ async (req,res)=>{
                 success:false,
 
                 message:
-                "Image size must be less than 2 MB"
+                "Image size must be less than 5 MB"
             });
         }
 
-        const allowed = [
 
-            "image/jpeg",
-            "image/png"
-        ];
-
-        if(
-            !allowed.includes(
-                req.file.mimetype
-            )
-        ){
-
-            fs.unlinkSync(
-                req.file.path
-            );
-
-            return res.json({
-
-                success:false,
-
-                message:
-                "Only JPG and PNG allowed"
-            });
-        }
 
         const fileData =
         await uploadPayment(
