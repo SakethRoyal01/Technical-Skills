@@ -56,6 +56,31 @@ async function saveFeedback(data){
     const timestamp =
     new Date().toLocaleString();
 
+    const existingData =
+await sheets.spreadsheets.values.get({
+
+    spreadsheetId:
+    FEEDBACK_SHEET_ID,
+
+    range:
+    `${section}!A:A`
+});
+
+const regNos =
+existingData.data.values || [];
+
+const alreadySubmitted =
+regNos.some(
+    row => row[0] === regNo
+);
+
+if(alreadySubmitted){
+
+    throw new Error(
+        "Feedback already submitted"
+    );
+}
+
     await sheets.spreadsheets.values.append({
 
         spreadsheetId:
