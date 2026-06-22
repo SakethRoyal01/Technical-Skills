@@ -502,3 +502,39 @@ async function paymentLogin() {
             "Server Error";
     }
 }
+
+function feedbackLogin(){
+
+    const regNo =
+    document.getElementById(
+        "feedbackRegNo"
+    ).value.trim();
+
+    const section =
+    document.getElementById(
+        "feedbackSection"
+    ).value;
+
+    if(!regNo || !section){
+
+        document.getElementById(
+            "feedbackMessage"
+        ).innerText =
+        "Enter Register Number and Section";
+
+        return;
+    }
+
+    localStorage.setItem(
+        "feedbackRegNo",
+        regNo
+    );
+
+    localStorage.setItem(
+        "feedbackSection",
+        section
+    );
+
+    window.location.href =
+    "feedback.html";
+}

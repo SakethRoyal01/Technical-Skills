@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Technical Skills Feedback</title>
+
+<link rel="stylesheet"
+href="feedback.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Technical Skills Feedback</h1>
+
+<div
+id="studentCard"
+class="card">
+
+Loading Student Details...
+
+</div>
+
+<div class="card">
+
+<h3>
+How would you rate the overall quality of the Technical Skills Program?
+</h3>
+
+<div class="stars" data-rating="q1">
+<span>★</span>
+<span>★</span>
+<span>★</span>
+<span>★</span>
+<span>★</span>
+</div>
+
+<p class="rating-label">
+Poor • Fair • Good • Very Good • Excellent
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+How relevant was the content covered in the program to your learning and career goals?
+</h3>
+
+<div class="stars" data-rating="q2">
+<span>★</span>
+<span>★</span>
+<span>★</span>
+<span>★</span>
+<span>★</span>
+</div>
+
+<p class="rating-label">
+Not Relevant • Slightly Relevant • Moderately Relevant • Relevant • Highly Relevant
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+Did the program help improve your technical knowledge and practical skills?
+</h3>
+
+<div class="stars" data-rating="q3">
+<span>★</span>
+<span>★</span>
+<span>★</span>
+<span>★</span>
+<span>★</span>
+</div>
+
+<p class="rating-label">
+Strongly Disagree • Disagree • Neutral • Agree • Strongly Agree
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+What was the most useful topic, activity, or aspect of the program?
+</h3>
+
+<textarea
+id="usefulTopic"
+placeholder="Enter your answer">
+</textarea>
+
+</div>
+
+<div class="card">
+
+<h3>
+What suggestions do you have for improving future Technical Skills Programs?
+</h3>
+
+<textarea
+id="suggestions"
+placeholder="Enter your suggestions">
+</textarea>
+
+</div>
+
+<div class="card">
+
+<h3>
+Feedback About the Trainer
+</h3>
+
+<textarea
+id="trainerFeedback"
+placeholder="Write your feedback about the trainer">
+</textarea>
+
+</div>
+
+<div class="card">
+
+<h3>
+Overall Rating
+</h3>
+
+<div class="stars" data-rating="overall">
+<span>★</span>
+<span>★</span>
+<span>★</span>
+<span>★</span>
+<span>★</span>
+</div>
+
+</div>
+
+<button
+id="submitBtn"
+onclick="submitFeedback()">
+
+Submit Feedback
+
+</button>
+
+</div>
+
+<script src="feedback.js"></script>
+
+</body>
+
+</html>

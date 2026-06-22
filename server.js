@@ -350,6 +350,9 @@ require("./googleDrive");
 
 const app = express();
 
+const saveFeedback =
+require("./googleFeedback");
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("public"));
@@ -588,19 +591,108 @@ catch(error){
 }
 });
 
+/* =========================
+FEEDBACK
+========================= */
 
-const PORT =
-process.env.PORT || 3000;
+app.post(
+"/submit-feedback",
 
-app.listen(PORT,()=>{
+async (req,res)=>{
 
+    try{
 
-console.log(
-    `Server running on port ${PORT}`
-);
+        await saveFeedback(
+            req.body
+        );
 
+        return res.json({
 
+            success:true,
+
+            message:
+            "Feedback submitted successfully"
+        });
+
+    }
+
+    catch(error){
+
+        console.log(error);
+
+        return res.json({
+
+            success:false,
+
+            message:
+            error.message
+        });
+    }
 });
+
+/* =========================
+FEEDBACK LOGIN
+========================= */
+
+app.post(
+"/feedback-login",
+
+(req,res)=>{
+
+    const {
+        regNo,
+        section
+    } = req.body;
+
+    db.get(
+
+        `
+        SELECT *
+        FROM students
+        WHERE regNo = ?
+        AND section = ?
+        `,
+
+        [
+            regNo,
+            section
+        ],
+
+        (err,row)=>{
+
+            if(err){
+
+                return res.json({
+
+                    success:false,
+
+                    message:
+                    "Database Error"
+                });
+            }
+
+            if(!row){
+
+                return res.json({
+
+                    success:false,
+
+                    message:
+                    "Register Number Not Found"
+                });
+            }
+
+            return res.json({
+
+                success:true,
+
+                student:row
+            });
+        }
+    );
+});
+
+
 
 app.get("/drive-test", async (req,res)=>{
 
@@ -735,25 +827,16 @@ catch(error){
 }
 });
 
-app.get("/drive-test", async (req, res) => {
 
-    try {
+const PORT =
+process.env.PORT || 3000;
 
-        const uploadPayment =
-        require("./googleDrivePayment");
+app.listen(PORT,()=>{
 
-        res.json({
-            success: true,
-            message: "Google Drive auth loaded"
-        });
 
-    } catch (err) {
+console.log(
+    `Server running on port ${PORT}`
+);
 
-        console.log(err);
 
-        res.json({
-            success: false,
-            error: err.message
-        });
-    }
 });

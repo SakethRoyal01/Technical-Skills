@@ -1221,6 +1221,45 @@ width:48%;
     }
 }
 
+.feedback-wrapper{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:10px;
+}
+
+.feedback-container{
+
+    width:48%;
+
+    max-width:580px;
+
+    border-top:6px solid #2563eb;
+}
+
+.feedback-btn{
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    color:white;
+}
+
+@media(max-width:768px){
+
+    .feedback-container{
+
+        width:100%;
+    }
+}
+
 </style>
 </head>
 
@@ -1353,6 +1392,49 @@ width:48%;
     </div>
 
 </div> -->
+
+<div class="feedback-wrapper">
+
+    <div class="container feedback-container">
+
+        <h1>Feedback</h1>
+
+        <input
+            type="text"
+            id="feedbackRegNo"
+            placeholder="Enter Register Number"
+        >
+
+        <select id="feedbackSection">
+
+            <option value="">Select Section</option>
+
+            <option>DS-AA</option>
+            <option>DS-AB</option>
+            <option>DS-BA</option>
+            <option>DS-BB</option>
+
+            <option>DSAI-AA</option>
+            <option>DSAI-AB</option>
+            <option>DSAI-BA</option>
+            <option>DSAI-BB</option>
+
+        </select>
+
+        <button
+            class="feedback-btn"
+            onclick="feedbackLogin()">
+
+            Continue
+
+        </button>
+
+        <p id="feedbackMessage"></p>
+
+    </div>
+
+</div>
+
 
 <div class="rules-container">
 
